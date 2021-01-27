@@ -1,9 +1,9 @@
 # Harmony SQL
-
+![Alt text](https://raw.githubusercontent.com/HarmonyPlugins/HarmonySQL/main/images/hsql_logo.png "Title")
 ## Description
 
 Harmony SQL is a Graphical User Interface for MySQL inside of Minecraft. It allows server admins to Create / Remove Databases, Create / Remove tables, Add/Remove/Alter Columns and Select Rows all while in game.
-
+![Alt text](https://github.com/HarmonyPlugins/HarmonySQL/blob/main/images/showcasegif.gif?raw=true "Title")
 ## Configuration
 
 ```config.yml``` is responsible for entering the MySQL server credentials as well as the security method for gaining access.
