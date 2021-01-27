@@ -1,0 +1,17 @@
+main: me.oreoezi.main.Main
+name: HarmonySQL
+version: 1.0.0
+description: MySQL Spigot Graphical User Interface 
+author: Oreoezi
+commands:
+ harmonysql:
+  description: Opens the MySQL GUI
+  usage: /<command>
+  aliases: [harsql, hsql]
+permissions:
+ harmonysql.admin:
+  description: Allows access to the MySQL GUI
+  default: op
+ harmonysql.reload:
+  description: Allows you to reload the config
+  default: op
