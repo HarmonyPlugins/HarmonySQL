@@ -20,6 +20,7 @@ Harmony SQL is a Graphical User Interface for MySQL inside of Minecraft. It allo
  	password: false
  	console: false
  	passphrase: "1234"
+    api_access: false
 </details>
 
 ```language.yml``` is reponsible for all the messages in the plugin alongside the prefix.
@@ -46,5 +47,53 @@ Harmony SQL is a Graphical User Interface for MySQL inside of Minecraft. It allo
   		invalid_password: "&fSorry, but the passphrase you entered is &binvalid&f."
   		code_sent: "&fYou need to enter the confirmation code sent to the &bConsole&f."```
 </details>
+
+## Commands & Permissions
+
+HarmonySQL has one command with two aliases:
+```
+/harmonysql 
+/hsql
+/harsql
+```
+
+HarmonySQL has two permissions: 
+```
+harmonysql.admin - allows access to the GUI
+harmonysql.reload - allows reloading the config with /hsql reload```
+
+## API
+
+HarmonySQL has a developer API for executing queries inside of databases.
+
+In order to use the API you need to enable API access in the HarmonySQL config.
+
+```config.yml:
+api_access: true
+```
+
+If you want to create an instance of the API when your plugin loads, make sure to set HarmonySQL as a dependency.
+```depend: [HarmonySQL]```
+
+The API will connect you to the same MySQL server as the credentials in the HamonySQL config.
+
+Example:
+```
+    public void onEnable() {
+        HarmonyAPI api = new HarmonyAPI(Bukkit.getServer().getPluginManager().getPlugin("HarmonySQL"));
+        try {
+            api.setDatabase("DATABASE");
+        }
+        catch (HarmonySQLException e) {
+            e.printStackTrace(); //gets thrown if api access is disabled
+        }
+        JSONArray rows = api.executeQuery("SHOW TABLES");
+        for (int i=0;i<rows.size();i++) {
+			JSONObject row = (JSONObject) rows.get(i);
+			row.get("COLUMN"); 
+		}
+		api.executeSetQuery("CREATE TABLE..."); //executes query that doesn't return anything
+    }
+```
 
 
