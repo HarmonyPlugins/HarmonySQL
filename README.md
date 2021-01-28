@@ -60,7 +60,8 @@ HarmonySQL has one command with two aliases:
 HarmonySQL has two permissions: 
 ```
 harmonysql.admin - allows access to the GUI
-harmonysql.reload - allows reloading the config with /hsql reload```
+harmonysql.reload - allows reloading the config with /hsql reload
+```
 
 ## API
 
